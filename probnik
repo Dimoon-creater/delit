@@ -1,16 +1,28 @@
+from math import sqrt
+def is_prime(n):
+    limit = sqrt(n)
+    j = 2
+    while j <= limit:
+        if n % j == 0:
+            return False
+        j += 1
+    return True
 a = int(input("Минимум: "))
 b = int(input("Максимум: "))
 n = int(input("Минимальное количество делителей: "))
 while a <= b:
     m = 0
-    for i in range(1,a+1):
-        i = is_prime(n)
-        if a%i == 0:
+    for k in range(1,a+1):
+        if a%k == 0:
             m += 1
     if m >= n:
-        print(a,'-',m,end=' - ')
-        for i in range(1,a+1):
-            if a%i == 0:
-                print(i,end=' ')
+        print(a,'-',)
+        for k in range(1,a+1):
+            if a%k == 0:
+                if is_prime(k):
+                    print(k,end=' ')
+                else:
+                    False
+                
         print()
     a += 1
